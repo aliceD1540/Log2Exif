@@ -22,3 +22,9 @@ Desktop.ini
 # Virtual Environment
 venv/
 env/
+
+# PyInstaller
+build/
+dist/
+*.spec
+!Log2Exif.spec
