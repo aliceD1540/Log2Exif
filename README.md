@@ -23,6 +23,20 @@ Googleマップのタイムライン（ロケーション履歴）データを�
 pip install -r requirements.txt
 ```
 
+## EXE版の使用（推奨）
+
+Pythonがインストールされていない環境でも使用できるEXE版を提供しています。
+
+### ダウンロード方法
+
+1. [Releases](https://github.com/aliceD1540/Log2Exif/releases) ページにアクセス
+2. 最新バージョンの `Log2Exif.exe` をダウンロード
+3. ダウンロードしたEXEファイルをダブルクリックで起動
+
+> [!NOTE]
+> EXE版はmainブランチが更新されるたびにGitHub Actionsで自動的にビルドされます。
+> タグが付いたバージョンは自動的にリリースページに公開されます。
+
 ## 使い方
 
 ### 1. データの準備
@@ -44,6 +58,44 @@ python main.py
 3. **Destination Folder**: 処理後の画像を保存するフォルダを選択します。
 4. **Overwrite**: 既に画像にGPS情報が含まれている場合、上書きするかどうかを選択します。
 5. **Start Processing**: 処理を開始します。
+
+## 開発者向け
+
+### EXEのビルド方法
+
+ローカル環境でEXEファイルをビルドする場合は、以下のコマンドを実行します。
+
+#### Windows
+
+```bash
+build_exe.bat
+```
+
+ビルドが成功すると、`dist/Log2Exif.exe` ファイルが生成されます。
+
+#### 手動ビルド
+
+```bash
+pip install pyinstaller
+pyinstaller Log2Exif.spec
+```
+
+### リリース方法
+
+新しいバージョンをリリースする場合は、以下の手順で行います。
+
+1. バージョンタグを作成（例: `v1.0.0`）
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+2. GitHub Actionsが自動的にEXEをビルドし、リリースを作成します
+3. リリースノートは自動生成されますが、必要に応じて編集できます
+
+> [!TIP]
+> タグは [セマンティックバージョニング](https://semver.org/lang/ja/) に従って `vX.Y.Z` 形式で作成することを推奨します。
 
 ## ライセンス
 
